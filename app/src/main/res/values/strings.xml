@@ -1,4 +1,7 @@
 <resources>
     <string name="app_name">Multithreading</string>
     <string name="handler">Handler</string>
+    <string name="empty_text" />
+    <string name="start">Start</string>
+    <string name="test">Test</string>
 </resources>

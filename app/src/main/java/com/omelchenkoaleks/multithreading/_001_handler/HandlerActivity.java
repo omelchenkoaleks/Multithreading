@@ -29,16 +29,35 @@ public class HandlerActivity extends AppCompatActivity {
         switch (view.getId()) {
 
             case R.id.start_handler_button:
+//                /*
+//                    Что здесь происходит? Мы полностью занимаем под свои нужды главный поток -
+//                    методом downloadFile(). Пока он работает в цикле - все блокируется
+//                    и не реагирует на нажатия !!!
+//                 */
+//                for (int i = 1; i <= 10; i++) {
+//                    downloadFile();
+//                    mInfoTextView.setText("number of uploaded files:" + i);
+//                    Log.d(TAG, "number of uploaded files:" + i);
+//                }
+//                break;
+
+
                 /*
-                    Что здесь происходит? Мы полностью занимаем под свои нужды главный поток -
-                    методом downloadFile(). Пока он работает в цикле - все блокируется
-                    и не реагирует на нажатия !!!
+                    Что здесь произойдет? Приложение упадет с ошибкой. Работа с View-компонентами
+                    доступна только из основного потока. Новые потоки не имеют доступа к элементам
+                    экрана !!!
                  */
-                for (int i = 1; i <= 10; i++) {
-                    downloadFile();
-                    mInfoTextView.setText("number of uploaded files:" + i);
-                    Log.d(TAG, "number of uploaded files:" + i);
-                }
+                Thread thread = new Thread(new Runnable() {
+                    @Override
+                    public void run() {
+                        for (int i = 1; i <= 10; i++) {
+                            downloadFile();
+                            mInfoTextView.setText("number of uploaded files:" + i);
+                            Log.d(TAG, "number of uploaded files:" + i);
+                        }
+                    }
+                });
+                thread.start();
                 break;
 
             case R.id.test_handler_button:

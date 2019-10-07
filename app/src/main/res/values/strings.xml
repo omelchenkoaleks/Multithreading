@@ -4,4 +4,6 @@
     <string name="empty_text" />
     <string name="start">Start</string>
     <string name="test">Test</string>
+    <string name="handlemessage_want">handleMessage want</string>
+    <string name="connect">Connect</string>
 </resources>

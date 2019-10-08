@@ -41,10 +41,25 @@ public class DelayedActivity extends AppCompatActivity {
         /*
             Отсчет задержки начинается после помещения в очередь,
             а не после обработки предыдущего сообщения.
-            Т.е. эти сообщения по отношению друг к другу сработают с интервалом в одну секунду
+            Т.е. эти сообщения по отношению друг к другу сработают с интервалом в одну секунду.
          */
+//        mHandler.sendEmptyMessageDelayed(1, 1000);
+//        mHandler.sendEmptyMessageDelayed(2, 2000);
+//        mHandler.sendEmptyMessageDelayed(3, 3000);
+
+        // удаляем одно сообщение
+//        mHandler.removeMessages(2);
+
+
+        // пример удаления нескольких сообщений с одинаковым what
         mHandler.sendEmptyMessageDelayed(1, 1000);
         mHandler.sendEmptyMessageDelayed(2, 2000);
         mHandler.sendEmptyMessageDelayed(3, 3000);
+        mHandler.sendEmptyMessageDelayed(2, 4000);
+        mHandler.sendEmptyMessageDelayed(5, 5000);
+        mHandler.sendEmptyMessageDelayed(2, 6000);
+        mHandler.sendEmptyMessageDelayed(7, 7000);
+
+        mHandler.removeMessages(2);
     }
 }

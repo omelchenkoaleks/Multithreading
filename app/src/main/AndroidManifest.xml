@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name="._002_handler_want.WantActivity"></activity>
+        <activity android:name="._003_handler_arg1_arg2_obj.HandlerAttributeActivity" />
+        <activity android:name="._002_handler_want.WantActivity" />
         <activity android:name="._001_handler.HandlerActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>

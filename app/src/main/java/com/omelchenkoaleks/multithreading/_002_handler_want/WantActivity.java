@@ -72,6 +72,11 @@ public class WantActivity extends AppCompatActivity {
             public void run() {
                 try {
 
+                    /*
+                        метод sendEmptyMessage - сам создает сообщение Message, заполняет
+                        его атрибут want и отправляет его в очередь
+                     */
+
                     // устанавливаем подключение
                     mHandler.sendEmptyMessage(STATUS_CONNECTING);
                     TimeUnit.SECONDS.sleep(2);

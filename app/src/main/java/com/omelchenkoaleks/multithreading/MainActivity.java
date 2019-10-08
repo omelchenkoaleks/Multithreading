@@ -8,6 +8,7 @@ import android.view.View;
 
 import com.omelchenkoaleks.multithreading._001_handler.HandlerActivity;
 import com.omelchenkoaleks.multithreading._002_handler_want.WantActivity;
+import com.omelchenkoaleks.multithreading._003_handler_arg1_arg2_obj.HandlerAttributeActivity;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -28,6 +29,10 @@ public class MainActivity extends AppCompatActivity {
             case R.id.handler_want_button:
                 Intent handlerWantIntent = new Intent(this, WantActivity.class);
                 startActivity(handlerWantIntent);
+
+            case R.id.handler_attribute_button:
+                Intent handlerAttributyIntent = new Intent(this, HandlerAttributeActivity.class);
+                startActivity(handlerAttributyIntent);
         }
     }
 }

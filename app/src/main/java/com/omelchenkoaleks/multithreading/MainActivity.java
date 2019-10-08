@@ -9,6 +9,7 @@ import android.view.View;
 import com.omelchenkoaleks.multithreading._001_handler.HandlerActivity;
 import com.omelchenkoaleks.multithreading._002_handler_want.WantActivity;
 import com.omelchenkoaleks.multithreading._003_handler_arg1_arg2_obj.HandlerAttributeActivity;
+import com.omelchenkoaleks.multithreading._004_handler_delayd_remove_callback.DelayedActivity;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -33,6 +34,10 @@ public class MainActivity extends AppCompatActivity {
             case R.id.handler_attribute_button:
                 Intent handlerAttributyIntent = new Intent(this, HandlerAttributeActivity.class);
                 startActivity(handlerAttributyIntent);
+
+            case R.id.handler_delayed_button:
+                Intent handlerDelayedIntent = new Intent(this, DelayedActivity.class);
+                startActivity(handlerDelayedIntent);
         }
     }
 }

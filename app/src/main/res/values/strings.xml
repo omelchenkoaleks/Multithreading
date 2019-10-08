@@ -7,4 +7,5 @@
     <string name="handlemessage_want">handleMessage want</string>
     <string name="connect">Connect</string>
     <string name="handlemessage_arg1_arg2_obj">handleMessage arg1 arg2 obj</string>
+    <string name="delayed_remove_callback">Delayed Remove Callback</string>
 </resources>

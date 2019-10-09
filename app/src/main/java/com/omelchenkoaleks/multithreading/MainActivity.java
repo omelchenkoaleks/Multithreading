@@ -12,6 +12,7 @@ import com.omelchenkoaleks.multithreading._003_handler_arg1_arg2_obj.HandlerAttr
 import com.omelchenkoaleks.multithreading._004_handler_delayd_remove_callback.DelayedActivity;
 import com.omelchenkoaleks.multithreading._005_handler_runnable.HandlerRunnableActivity;
 import com.omelchenkoaleks.multithreading._006_handler_test_methods.TestMethodsActivity;
+import com.omelchenkoaleks.multithreading._007_async_task_begin.AsyncTaskBeginActivity;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -48,6 +49,10 @@ public class MainActivity extends AppCompatActivity {
             case R.id.handler_test_methods_button:
                 Intent handlerTestMethodsIntent = new Intent(this, TestMethodsActivity.class);
                 startActivity(handlerTestMethodsIntent);
+
+            case R.id.async_task_begin_button:
+                Intent asyncTaskBeginIntent = new Intent(this, AsyncTaskBeginActivity.class);
+                startActivity(asyncTaskBeginIntent);
         }
     }
 }

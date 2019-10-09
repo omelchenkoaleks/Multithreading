@@ -10,4 +10,7 @@
     <string name="delayed_remove_callback">Delayed Remove Callback</string>
     <string name="handler_runnable">Handler Runnable</string>
     <string name="test_methods">Test Methods</string>
+    <string name="asynctask_begin">AsyncTask Begin</string>
+    <string name="begin">Begin</string>
+    <string name="end">End</string>
 </resources>

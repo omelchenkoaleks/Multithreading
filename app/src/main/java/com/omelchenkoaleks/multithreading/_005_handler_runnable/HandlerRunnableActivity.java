@@ -35,7 +35,7 @@ public class HandlerRunnableActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_005handler_runnable);
+        setContentView(R.layout.activity_005_handler_runnable);
 
         mHandler = new Handler();
 

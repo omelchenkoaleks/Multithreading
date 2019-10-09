@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name="._005_handler_runnable.HandlerRunnableActivity"></activity>
+        <activity android:name="._006_handler_test_methods.TestMethodsActivity"></activity>
+        <activity android:name="._005_handler_runnable.HandlerRunnableActivity" />
         <activity android:name="._004_handler_delayd_remove_callback.DelayedActivity" />
         <activity android:name="._003_handler_arg1_arg2_obj.HandlerAttributeActivity" />
         <activity android:name="._002_handler_want.WantActivity" />

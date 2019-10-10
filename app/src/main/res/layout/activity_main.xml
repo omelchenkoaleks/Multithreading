@@ -126,4 +126,19 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/async_task_begin_button" />
 
+    <Button
+        android:id="@+id/async_task_get_button"
+        style="@style/style_buttons_main"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/round_edges_buttons"
+        android:fontFamily="@font/delius_unicase"
+        android:layout_marginTop="8dp"
+        android:textStyle="bold"
+        android:onClick="onClick"
+        android:text="@string/asynctask_get"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/async_task_attr_button" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

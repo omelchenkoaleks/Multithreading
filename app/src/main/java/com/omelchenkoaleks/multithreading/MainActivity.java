@@ -14,6 +14,7 @@ import com.omelchenkoaleks.multithreading._005_handler_runnable.HandlerRunnableA
 import com.omelchenkoaleks.multithreading._006_handler_test_methods.TestMethodsActivity;
 import com.omelchenkoaleks.multithreading._007_async_task_begin.AsyncTaskBeginActivity;
 import com.omelchenkoaleks.multithreading._008_async_task_attr.AsyncTaskAttrActivity;
+import com.omelchenkoaleks.multithreading._009_async_task_get.AsyncTaskGetActivity;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -58,6 +59,10 @@ public class MainActivity extends AppCompatActivity {
             case R.id.async_task_attr_button:
                 Intent asyncTaskParameterIntent = new Intent(this, AsyncTaskAttrActivity.class);
                 startActivity(asyncTaskParameterIntent);
+
+            case R.id.async_task_get_button:
+                Intent asyncTaskGetIntent = new Intent(this, AsyncTaskGetActivity.class);
+                startActivity(asyncTaskGetIntent);
         }
     }
 }

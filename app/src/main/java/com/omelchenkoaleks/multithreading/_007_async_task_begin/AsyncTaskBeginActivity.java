@@ -30,6 +30,9 @@ public class AsyncTaskBeginActivity extends AppCompatActivity {
         mTask.execute();
     }
 
+    /*
+        <Void, Void, Void> - означает, что мы не используем параметры.
+     */
     private class MyBeginTask extends AsyncTask<Void, Void, Void> {
 
         @Override

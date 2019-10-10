@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name="._007_async_task_begin.AsyncTaskBeginActivity"></activity>
+        <activity android:name="._008_async_task_attr.AsyncTaskAttrActivity"></activity>
+        <activity android:name="._007_async_task_begin.AsyncTaskBeginActivity" />
         <activity android:name="._006_handler_test_methods.TestMethodsActivity" />
         <activity android:name="._005_handler_runnable.HandlerRunnableActivity" />
         <activity android:name="._004_handler_delayd_remove_callback.DelayedActivity" />

@@ -13,4 +13,5 @@
     <string name="asynctask_begin">AsyncTask Begin</string>
     <string name="begin">Begin</string>
     <string name="end">End</string>
+    <string name="asynctask_parameter">AsyncTask Parameter</string>
 </resources>

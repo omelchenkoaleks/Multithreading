@@ -13,6 +13,7 @@ import com.omelchenkoaleks.multithreading._004_handler_delayd_remove_callback.De
 import com.omelchenkoaleks.multithreading._005_handler_runnable.HandlerRunnableActivity;
 import com.omelchenkoaleks.multithreading._006_handler_test_methods.TestMethodsActivity;
 import com.omelchenkoaleks.multithreading._007_async_task_begin.AsyncTaskBeginActivity;
+import com.omelchenkoaleks.multithreading._008_async_task_attr.AsyncTaskAttrActivity;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -53,6 +54,10 @@ public class MainActivity extends AppCompatActivity {
             case R.id.async_task_begin_button:
                 Intent asyncTaskBeginIntent = new Intent(this, AsyncTaskBeginActivity.class);
                 startActivity(asyncTaskBeginIntent);
+
+            case R.id.async_task_attr_button:
+                Intent asyncTaskParameterIntent = new Intent(this, AsyncTaskAttrActivity.class);
+                startActivity(asyncTaskParameterIntent);
         }
     }
 }

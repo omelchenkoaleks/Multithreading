@@ -13,6 +13,7 @@ import com.omelchenkoaleks.multithreading.R;
 
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.TimeUnit;
+import java.util.concurrent.TimeoutException;
 
 public class AsyncTaskGetActivity extends AppCompatActivity {
     private static final String TAG = "Get";
@@ -49,12 +50,24 @@ public class AsyncTaskGetActivity extends AppCompatActivity {
         int result = -1;
         try {
             Log.d(TAG, "showResult: Try to get result!!!");
-            result = mTask.get();
+//            result = mTask.get();
+
+            /*
+                ... реализация метода get с таймаутом:
+                теперь метод get ждет одну секунду
+                и если не получает результат генерирует исключение
+             */
+            result = mTask.get(1, TimeUnit.SECONDS);
+
             Log.d(TAG, "get returns " + result);
             Toast.makeText(this, "get returns " + result, Toast.LENGTH_SHORT).show();
         } catch (ExecutionException e) {
             e.printStackTrace();
         } catch (InterruptedException e) {
+            e.printStackTrace();
+        } catch (TimeoutException e) {
+            // ловим исключение и выводим сообщение в лог
+            Log.d(TAG, "get timeout, result = " + result);
             e.printStackTrace();
         }
     }

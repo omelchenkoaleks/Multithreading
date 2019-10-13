@@ -46,16 +46,21 @@ public class AsyncTaskStatusActivity extends AppCompatActivity {
     }
 
     private void startTask() {
-        // без метода execute() задача еще не запущена
+        // 1 тест =  без метода execute() задача еще не запущена
         mStatusTask = new StatusTask();
-        // запускаем задачу
+        // 2 тест =  запускаем задачу
         mStatusTask.execute();
+        // 3 тест = для тестирования сразу отменяем задачу
+        mStatusTask.cancel(false);
     }
 
     private void showStatus() {
         if (mStatusTask != null)
-        // выводим статус в тост методом getStatus() - смотрим:
-        Toast.makeText(this, mStatusTask.getStatus().toString(), Toast.LENGTH_SHORT).show();
+            if (mStatusTask.isCancelled())
+                Toast.makeText(this, "CANCELLED", Toast.LENGTH_SHORT).show();
+            else
+                // выводим статус в тост методом getStatus() - смотрим:
+                Toast.makeText(this, mStatusTask.getStatus().toString(), Toast.LENGTH_SHORT).show();
     }
 
     private class StatusTask extends AsyncTask<Void, Void, Void> {

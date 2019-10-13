@@ -43,7 +43,7 @@ public class CancelActivity extends AppCompatActivity {
 
     private void cancelTask() {
         if (mTask == null) return;
-        Log.d(TAG, "cancelTask: cancel result:" + mTask.cancel(false));
+        Log.d(TAG, "cancelTask: cancel result: " + mTask.cancel(false));
     }
 
     private class CancelTask extends AsyncTask<Void, Void, Void> {
@@ -60,6 +60,7 @@ public class CancelActivity extends AppCompatActivity {
             try {
                 for (int i = 0; i < 5; i++) {
                     TimeUnit.SECONDS.sleep(1);
+                    if (isCancelled()) return null;
                     Log.d(TAG, "doInBackground isCancelled " + isCancelled());
                 }
             } catch (InterruptedException e) {

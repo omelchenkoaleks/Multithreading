@@ -16,4 +16,6 @@
     <string name="asynctask_parameter">AsyncTask Parameter</string>
     <string name="asynctask_get">AsyncTask get</string>
     <string name="result">Result</string>
+    <string name="cancel">Cancel</string>
+    <string name="asynctask_cancel">AsyncTask Cancel</string>
 </resources>

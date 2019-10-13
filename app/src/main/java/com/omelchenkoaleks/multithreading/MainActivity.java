@@ -16,6 +16,7 @@ import com.omelchenkoaleks.multithreading._007_async_task_begin.AsyncTaskBeginAc
 import com.omelchenkoaleks.multithreading._008_async_task_attr.AsyncTaskAttrActivity;
 import com.omelchenkoaleks.multithreading._009_async_task_get.AsyncTaskGetActivity;
 import com.omelchenkoaleks.multithreading._010_async_task_cancel.CancelActivity;
+import com.omelchenkoaleks.multithreading._011_async_task_status.AsyncTaskStatusActivity;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -68,6 +69,11 @@ public class MainActivity extends AppCompatActivity {
             case R.id.async_task_cancel_button:
                 Intent asyncTaskCancelIntent = new Intent(this, CancelActivity.class);
                 startActivity(asyncTaskCancelIntent);
+
+            case R.id.status_async_button:
+                Intent statusIntent = new Intent(this, AsyncTaskStatusActivity.class);
+                startActivity(statusIntent);
+
         }
     }
 }

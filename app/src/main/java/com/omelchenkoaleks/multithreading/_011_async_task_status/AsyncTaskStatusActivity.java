@@ -48,6 +48,8 @@ public class AsyncTaskStatusActivity extends AppCompatActivity {
     private void startTask() {
         // без метода execute() задача еще не запущена
         mStatusTask = new StatusTask();
+        // запускаем задачу
+        mStatusTask.execute();
     }
 
     private void showStatus() {

@@ -1,5 +1,6 @@
 package com.omelchenkoaleks.multithreading._012_async_task_rotation;
 
+import android.app.Activity;
 import android.content.Context;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -47,7 +48,8 @@ public class RotationActivity extends AppCompatActivity {
         }
 
         // передаем в таск ссылку на текущую активити
-        mTask.link(this);
+//        mTask.link(this);
+        mTask.setActivity(this);
 
         Log.d(TAG, "onCreate: mTask: " + mTask.hashCode());
     }
@@ -71,27 +73,38 @@ public class RotationActivity extends AppCompatActivity {
     static class RotationTask extends AsyncTask<String, Integer, Void> {
 
         private Context mContext;
-        private RotationActivity mRotationActivity;
+        private Activity mActivity;
+//        private RotationActivity mRotationActivity;
+
+        public void setActivity(Activity activity) {
+            mActivity = activity;
+        }
 
         RotationTask(RotationActivity activity) {
             mContext = activity.getApplicationContext();
-            mRotationActivity = activity;
+            mActivity = activity;
+//            mRotationActivity = activity;
         }
 
+        // здесь таска привязано к конкретной активити
         // получаем ссылку на RotationActivity
-        private void link(RotationActivity activity) {
-            mRotationActivity = activity;
-        }
+//        private void link(RotationActivity activity) {
+//            mRotationActivity = activity;
+//        }
 
         // обнуляем ссылку
         private void unLink() {
-            mRotationActivity = null;
+//            mRotationActivity = null;
+            mActivity = null;
         }
 
         @Override
         protected void onPreExecute() {
             super.onPreExecute();
-            mRotationActivity.mRotationTextView.setText(mContext.getString(R.string.begin));
+//            mRotationActivity.mRotationTextView.setText(mContext.getString(R.string.begin));
+
+            // так как мы используем здесь абстрактную активити = нужно сделать каст
+            ((RotationActivity) mActivity).mRotationTextView.setText(mContext.getString(R.string.begin));
         }
 
         @Override
@@ -113,13 +126,19 @@ public class RotationActivity extends AppCompatActivity {
         @Override
         protected void onProgressUpdate(Integer... values) {
             super.onProgressUpdate(values);
-            mRotationActivity.mRotationTextView.setText("i = " + values[0]);
+//            mRotationActivity.mRotationTextView.setText("i = " + values[0]);
+
+            // нужен каст
+            ((RotationActivity) mActivity).mRotationTextView.setText("i = " + values[0]);
         }
 
         @Override
         protected void onPostExecute(Void aVoid) {
             super.onPostExecute(aVoid);
-            mRotationActivity.mRotationTextView.setText(mContext.getString(R.string.end));
+//            mRotationActivity.mRotationTextView.setText(mContext.getString(R.string.end));
+
+            // нужен каст
+            ((RotationActivity) mActivity).mRotationTextView.setText(mContext.getString(R.string.end));
         }
     }
 }

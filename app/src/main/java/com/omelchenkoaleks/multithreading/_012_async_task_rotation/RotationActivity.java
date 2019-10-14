@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.widget.TextView;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.omelchenkoaleks.multithreading.R;
@@ -27,13 +28,32 @@ public class RotationActivity extends AppCompatActivity {
 
         mRotationTextView = findViewById(R.id.rotation_text_view);
 
-        mTask = new RotationTask();
-        // смотрим hashCod текущего объекта AsyncTask
-        Log.d(TAG, "onCreate: RotationTask: " + mTask.hashCode());
-        mTask.execute();
+//        mTask = new RotationTask();
+//        // смотрим hashCod текущего объекта AsyncTask
+//        Log.d(TAG, "onCreate: RotationTask: " + mTask.hashCode());
+//        mTask.execute();
+
+
+        /*
+            смотри лог - хотя мы вернули доступ к старому таску, он продолжает работать где-то
+            в памяти со старым экземпляром активити (потому-что объект внутреннего класса
+            содержит скрытую ссылку на объект внешнего класса (в данном случае RotationActivity) !!!
+         */
+        mTask = (RotationTask) getLastCustomNonConfigurationInstance();
+        if (mTask == null) {
+            mTask = new RotationTask();
+            mTask.execute();
+        }
+        Log.d(TAG, "onCreate: mTask: " + mTask.hashCode());
     }
 
-    private class RotationTask extends AsyncTask<String, Integer, Void> {
+    @Nullable
+    @Override
+    public Object onRetainCustomNonConfigurationInstance() {
+        return mTask;
+    }
+
+    class RotationTask extends AsyncTask<String, Integer, Void> {
 
         @Override
         protected void onPreExecute() {

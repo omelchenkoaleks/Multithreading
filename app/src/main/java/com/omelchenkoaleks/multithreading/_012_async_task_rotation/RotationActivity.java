@@ -1,5 +1,6 @@
 package com.omelchenkoaleks.multithreading._012_async_task_rotation;
 
+import android.content.Context;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
@@ -41,24 +42,56 @@ public class RotationActivity extends AppCompatActivity {
          */
         mTask = (RotationTask) getLastCustomNonConfigurationInstance();
         if (mTask == null) {
-            mTask = new RotationTask();
+            mTask = new RotationTask(this);
             mTask.execute();
         }
+
+        // передаем в таск ссылку на текущую активити
+        mTask.link(this);
+
         Log.d(TAG, "onCreate: mTask: " + mTask.hashCode());
     }
 
     @Nullable
     @Override
     public Object onRetainCustomNonConfigurationInstance() {
+        // удаляем из таски ссылку на старое RotationActivity
+        mTask.unLink();
         return mTask;
     }
 
-    class RotationTask extends AsyncTask<String, Integer, Void> {
+    /*
+        делаем внутренний класс static - теперь он никак не связан с объектом внешнего класса и
+        не содержит скрытую ссылку на него !!!
+
+        Но нам нужно получить доступ к объектам (RotationActivity) - для этого создадим ссылку.
+        Для этого в RotationTask опишем объект, он и будет ссылаться на RotationActivity. А мы будем
+        этой ссылкой управлять - когда создается новое RotationActivity, мы будем давать ссылку на него в RotationTask.
+     */
+    static class RotationTask extends AsyncTask<String, Integer, Void> {
+
+        private Context mContext;
+        private RotationActivity mRotationActivity;
+
+        RotationTask(RotationActivity activity) {
+            mContext = activity.getApplicationContext();
+            mRotationActivity = activity;
+        }
+
+        // получаем ссылку на RotationActivity
+        private void link(RotationActivity activity) {
+            mRotationActivity = activity;
+        }
+
+        // обнуляем ссылку
+        private void unLink() {
+            mRotationActivity = null;
+        }
 
         @Override
         protected void onPreExecute() {
             super.onPreExecute();
-            mRotationTextView.setText(getString(R.string.begin));
+            mRotationActivity.mRotationTextView.setText(mContext.getString(R.string.begin));
         }
 
         @Override
@@ -69,7 +102,7 @@ public class RotationActivity extends AppCompatActivity {
                     publishProgress(i);
                     Log.d(TAG, "i = " + i
                             + ", mTask: " + this.hashCode()
-                            + ", RotationActivity: " + RotationActivity.this.hashCode());
+                            + ", RotationActivity: " + this.hashCode());
                 }
             } catch (InterruptedException e) {
                 e.printStackTrace();
@@ -80,13 +113,13 @@ public class RotationActivity extends AppCompatActivity {
         @Override
         protected void onProgressUpdate(Integer... values) {
             super.onProgressUpdate(values);
-            mRotationTextView.setText("i = " + values[0]);
+            mRotationActivity.mRotationTextView.setText("i = " + values[0]);
         }
 
         @Override
         protected void onPostExecute(Void aVoid) {
             super.onPostExecute(aVoid);
-            mRotationTextView.setText(getString(R.string.end));
+            mRotationActivity.mRotationTextView.setText(mContext.getString(R.string.end));
         }
     }
 }

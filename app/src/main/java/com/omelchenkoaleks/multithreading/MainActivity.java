@@ -17,6 +17,7 @@ import com.omelchenkoaleks.multithreading._008_async_task_attr.AsyncTaskAttrActi
 import com.omelchenkoaleks.multithreading._009_async_task_get.AsyncTaskGetActivity;
 import com.omelchenkoaleks.multithreading._010_async_task_cancel.CancelActivity;
 import com.omelchenkoaleks.multithreading._011_async_task_status.AsyncTaskStatusActivity;
+import com.omelchenkoaleks.multithreading._012_async_task_rotation.RotationActivity;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -73,6 +74,10 @@ public class MainActivity extends AppCompatActivity {
             case R.id.status_async_button:
                 Intent statusIntent = new Intent(this, AsyncTaskStatusActivity.class);
                 startActivity(statusIntent);
+
+            case R.id.rotation_button:
+                Intent rotationIntent = new Intent(this, RotationActivity.class);
+                startActivity(rotationIntent);
 
         }
     }

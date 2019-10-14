@@ -21,4 +21,6 @@
     <string name="asynctask_status">AsyncTask Status</string>
     <string name="status">Status</string>
     <string name="get_status">getStatus</string>
+    <string name="hint_result">Result</string>
+    <string name="rotation">Rotation</string>
 </resources>

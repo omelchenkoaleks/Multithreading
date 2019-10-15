@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name="._012_async_task_rotation.RotationActivity"></activity>
+        <activity android:name="._013_loader.LoaderActivity"></activity>
+        <activity android:name="._012_async_task_rotation.RotationActivity" />
         <activity android:name="._011_async_task_status.AsyncTaskStatusActivity" />
         <activity android:name="._010_async_task_cancel.CancelActivity" />
         <activity android:name="._009_async_task_get.AsyncTaskGetActivity" />

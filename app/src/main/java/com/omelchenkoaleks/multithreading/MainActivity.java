@@ -18,6 +18,7 @@ import com.omelchenkoaleks.multithreading._009_async_task_get.AsyncTaskGetActivi
 import com.omelchenkoaleks.multithreading._010_async_task_cancel.CancelActivity;
 import com.omelchenkoaleks.multithreading._011_async_task_status.AsyncTaskStatusActivity;
 import com.omelchenkoaleks.multithreading._012_async_task_rotation.RotationActivity;
+import com.omelchenkoaleks.multithreading._013_loader.LoaderActivity;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -78,6 +79,10 @@ public class MainActivity extends AppCompatActivity {
             case R.id.rotation_button:
                 Intent rotationIntent = new Intent(this, RotationActivity.class);
                 startActivity(rotationIntent);
+
+            case R.id.loader_button:
+                Intent loaderIntent = new Intent(this, LoaderActivity.class);
+                startActivity(loaderIntent);
 
         }
     }

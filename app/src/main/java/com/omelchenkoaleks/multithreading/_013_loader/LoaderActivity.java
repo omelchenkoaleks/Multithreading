@@ -2,6 +2,7 @@ package com.omelchenkoaleks.multithreading._013_loader;
 
 import android.app.LoaderManager;
 import android.content.Loader;
+import android.database.ContentObserver;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -40,6 +41,12 @@ public class LoaderActivity extends AppCompatActivity implements LoaderManager.L
 
         Bundle bundle = new Bundle();
         bundle.putString(TimeLoader.ARGS_TIME_FORMAT, getTimeFormat());
+
+
+        /*
+            Важное замечание! Все рассмотренные здесь примеры работают при условии,
+            что initLoader вызывается в onCreate.
+         */
 
         // получаем объект LoaderManager, который с помощью своего метода initLoader создаст и вернет нам Loader
         getLoaderManager().initLoader(LOADER_TIME_ID, bundle, this);
@@ -80,6 +87,15 @@ public class LoaderActivity extends AppCompatActivity implements LoaderManager.L
     }
 
     public void observerOnClick(View view) {
+        Log.d(TAG, "observerOnClick");
+        Loader<String> loader = getLoaderManager().getLoader(LOADER_TIME_ID);
+        final ContentObserver observer = loader.new ForceLoadContentObserver();
+        view.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                observer.dispatchChange(false);
+            }
+        }, 5000);
     }
 
     // вызывается, когда требуется создать новый лоадер

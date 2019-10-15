@@ -49,6 +49,9 @@ public class TimeLoader extends Loader<String> {
     protected void onStartLoading() {
         super.onStartLoading();
         Log.d(TAG, hashCode() + " onStartLoading");
+        if (takeContentChanged()) {
+            forceLoad();
+        }
     }
 
     // вызывается при остановке (onStop) Activity или фрагмента, к которому привязан Loader

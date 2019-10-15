@@ -49,6 +49,7 @@ public class TimeLoader extends Loader<String> {
     protected void onStartLoading() {
         super.onStartLoading();
         Log.d(TAG, hashCode() + " onStartLoading");
+        // если метка говорит, что данные были изменены, то запускаем работу
         if (takeContentChanged()) {
             forceLoad();
         }

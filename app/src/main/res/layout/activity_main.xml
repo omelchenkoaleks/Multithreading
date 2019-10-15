@@ -209,6 +209,21 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/rotation_button" />
 
+            <Button
+                android:id="@+id/async_task_loader_button"
+                style="@style/style_buttons_main"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/round_edges_buttons"
+                android:fontFamily="@font/delius_unicase"
+                android:onClick="onClick"
+                android:text="@string/asynctaskloader"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/loader_button" />
+
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </ScrollView>

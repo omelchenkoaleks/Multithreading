@@ -28,4 +28,5 @@
     <string name="format_long">long</string>
     <string name="get_time">get time</string>
     <string name="observer">observer</string>
+    <string name="asynctaskloader">AsyncTaskLoader</string>
 </resources>
